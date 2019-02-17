@@ -1,0 +1,24 @@
+task hello{
+    println 'hello Earth';
+}
+hello.doFirst{
+    println 'hello do first 1'
+}
+hello.doFirst{
+    println 'hello do first 2'
+}
+hello.doLast{
+    println 'hello do last 1'
+}
+hello.doLast{
+    println 'hello do last 2'
+}
+// doLast,doFirst是gradle提供访问task任务的一个API,"<<" 等价于 doLast
+hello << {
+    println 'hello do <<'
+}
+hello >> {
+    println 'hello do >>'
+ }
+    
+    

@@ -1,0 +1,10 @@
+task hello << {
+    println 'task hello'
+}
+
+task intro(dependsOn:hello) << {
+    println 'I am task intro, dependsOn task:hello'
+}  
+
+apply plugin: 'java' 
+    

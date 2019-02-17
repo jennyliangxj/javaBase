@@ -1,0 +1,24 @@
+git init  初始化一个git 仓库
+git add <filename> 添加文件到仓库
+git commit -m "description" 把文件提交到仓库
+git log 显示从最近到最远的提交日志
+git log -pretty=online
+
+commit id:版本号，SHA1计算出来的一大串数字，十六进制表示，而svn用1.2.3...表示
+git reset --hard HEAD^ :HEAD表示当前版本，HEAD^上一个版本，HEAD^^上上一个版本，当前往上100个版本 HEAD~100
+reset总是回到commit的点上，若当前工作区某文件修改后add了，但是没有commit,执行git reset *** 会使得工作区修改文件内容丢失
+git 工作区，暂存区，masterwhat will be com分支和HEAD 指针，git status
+git differ HEAD -- <filename> 查看工作区跟版本库里面最新版本的区别
+git 跟踪修改，每次修改如果不add到暂存区，那就不会加入到commitii中
+git checkout -- <filename>:file 修改后没有add过，撤销修改回到跟版本库一样；file在add后添加到暂存区后做的修改，回到add到暂存区后的状态。git rest HEAD命令，可以把暂存区修改撤销掉，回退到工作区。
+git rm <file> 后 git commit -m "" 删除文件
+远程创库，创建SSH Key: ssh-keygen -t rsa -C "youremail@example.com"
+用户主目录里找到.ssh目录，里面有id_rsa和id_rsa.pub两个文件，这两个就是SSH Key的秘钥对，id_rsa是私钥，不能泄露出去，id_rsa.pub是公钥.
+
+要关联一个远程库，使用命令git remote add origin git@server-name:path/repo-name.git；
+关联后，使用命令git push -u origin master第一次推送master分支的所有内容；
+此后，每次本地提交后，只要有必要，就可以使用命令git push origin master推送最新修改；
+分布式版本系统的最大好处之一是在本地工作完全不需要考虑远程库的存在，也就是有没有联网都可以正常工作，而SVN在没有联网的时候是拒绝干活的！当有网络的时候，再把本地提交推送一下就完成了同步，真是太方便了！
+
+要克隆一个仓库，首先必须知道仓库的地址，然后使用git clone命令克隆。Git支持多种协议，包括https，但通过ssh支持的原生git协议速度最快。
+git clone git@erver-name:path/gitskills.git

@@ -25,7 +25,7 @@ public class ValidPalindrome {
 		int head = 0;
 		int tail = str.length() -1;
 		while(head < tail){
-			if(Character.toLowerCase(head) != Character.toLowerCase(tail)){
+			if(Character.toLowerCase(str.charAt(head)) != Character.toLowerCase(str.charAt(tail))){
 				return false;
 			}
 			head++;

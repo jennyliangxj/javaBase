@@ -3,7 +3,7 @@
  */
 package com.problem.sort;
 
-/**
+/** https://www.cnblogs.com/jiansen/p/7343867.html
  * @author xiliang
  * 快速排序：
  * @该方法的基本思想是：
@@ -42,4 +42,7 @@ public class QuickSort {
         }  
 		return array;
 	}
+    public static int[] quickSort(int[] array) {
+	    return quickSort(array,0,array.length-1);
+    }
 }

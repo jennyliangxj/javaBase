@@ -1,0 +1,82 @@
+1.取得每个部门最高薪水的人员名称
+ 第一步：求出每个部门的最高薪水
+	select 
+		e.deptno,max(e.salary) as maxsalary
+	from 
+		employ e
+	group by 
+		e.deptno;
+		
+    +----+-----+-----------+
+    | deptno   | maxsalary | 
+    +----+-----+-----------+
+    |  10      |  5000.00  |
+    |  20      |  3800.00  |
+    |  30      |  2850.00  |
+    +----+-----+------+----+
+	
+ 第二步：将以上查询结果当成一个临时表temp(deptno,maxsalary)
+	select 
+		e.depto,e.ename,t.maxsalary,e.salary
+	from 
+		t
+	join 
+		employ e
+	on
+		t.deptno = e.deptno
+	where 
+		t.maxsalary = e.salary
+	order by
+		e.deptno;
+		
+	+---------+-------+-----------+--------+
+    | deptno | ename  | maxsalary| salary | 
+    +--------+-----------+-+--------------+
+    |  10    | xiang1  |5000.00 |  5000.00 |
+    |  20    | xiang12 |3800.00 |  3800.00 |
+	|  20    | jack    |3800.00 |  3800.00 |
+    |  30    | xiang123|2850.00 |  2850.00 |
+    +----+-----+------+----+-+------+------+	
+	
+2.哪些人的薪水在部门平均薪水之上
+第一步：求出每个部门的平均薪水
+	select 
+		e.deptno,avg(e.salary) as avgsalary
+	from 
+		employ e
+	group by  
+		e.deptno
+		
+	+----+-----+-----------+
+    | deptno   | maxsalary | 
+    +----+-----+-----------+
+    |  10      | 2916.66667|
+    |  20      | 2175.00000|
+    |  30      | 1566.66667|
+    +----+-----+------+----+
+第二步：将以上结果当做临时表t(deptno,avgsalary)
+	select 
+		t.deptno,e.ename,e,salary
+	from t
+	join
+		emply e
+	on 
+		e.deptno = t.deptno
+	where 
+		e.salary > t.avgsalary
+		
+
+		
+	
+	
+
+	
+	
+	
+	
+
+
+
+
+		
+ 

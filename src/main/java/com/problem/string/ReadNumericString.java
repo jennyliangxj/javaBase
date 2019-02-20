@@ -5,7 +5,6 @@ package com.problem.string;
  */
 public class ReadNumericString {
 	public static String readNumericString(String str){
-		int num = Integer.parseInt(str);
 		String[] str1 = {"零","壹","贰","叁","肆","伍","陆","柒","捌","玖"};
 		String[] str2 = {"","拾","佰","仟"};
 		String outStr = "";

@@ -51,5 +51,4 @@ public class MinStack {
         }
         return this.minStack.peek();
     }
-
 }
